@@ -4,12 +4,13 @@ Homebrew formulae for [OrgMentem](https://github.com/OrgMentem) tools.
 
 ## Formulae
 
-| Formula | What it is | Install |
+| Formula | What it is | Status |
 | --- | --- | --- |
-| `zotio` | Trust-and-automation layer for Zotero — search, export, analytics, safe writes, MCP. | `brew install orgmentem/tap/zotio` |
-| `inscribi` | Local-first academic feedback engine for instructor-reviewed marking. | `brew install orgmentem/tap/inscribi` |
+| `zotio` | Trust-and-automation layer for Zotero — search, export, analytics, safe writes, MCP. | Not yet released. The formula is published here automatically on the first tagged release of `OrgMentem/zotio`. |
+| `inscribi` | Local-first academic feedback engine for instructor-reviewed marking. | **Not yet published** — source repo is private and it is not on PyPI (see below). |
 
-`orgmentem/tap/<formula>` is shorthand for:
+Once a formula is published, install it with `brew install orgmentem/tap/<formula>`,
+which is shorthand for:
 
 ```bash
 brew tap orgmentem/tap      # clones github.com/OrgMentem/homebrew-tap
@@ -30,7 +31,9 @@ A `Casks/` directory can be added later for `.app`/`.dmg` desktop launchers.
 
 ## `zotio`
 
-Installs the `zotio` CLI and the `zotio-mcp` MCP server.
+Installs the `zotio` CLI and the `zotio-mcp` MCP server. **Not yet released** — no
+`Formula/zotio.rb` exists here until the first tagged release, so the command below
+will not work until then:
 
 ```bash
 brew install orgmentem/tap/zotio
