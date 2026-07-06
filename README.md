@@ -1,26 +1,19 @@
 # OrgMentem Homebrew Tap
 
-Homebrew formulae for OrgMentem tools.
+Homebrew formulae for [OrgMentem](https://github.com/OrgMentem) tools.
 
-## Install
+## Formulae
 
-```bash
-brew install orgmentem/tap/inscribi
-```
+| Formula | What it is | Install |
+| --- | --- | --- |
+| `zotio` | Trust-and-automation layer for Zotero — search, export, analytics, safe writes, MCP. | `brew install orgmentem/tap/zotio` |
+| `inscribi` | Local-first academic feedback engine for instructor-reviewed marking. | `brew install orgmentem/tap/inscribi` |
 
-This is shorthand for:
-
-```bash
-brew tap orgmentem/tap          # clones github.com/OrgMentem/homebrew-tap
-brew install inscribi
-```
-
-After install, launch the browser UI from a project directory:
+`orgmentem/tap/<formula>` is shorthand for:
 
 ```bash
-cd ~/Marking/PSYC101
-inscribi serve --host 127.0.0.1 --port 8080
-# then open http://127.0.0.1:8080
+brew tap orgmentem/tap      # clones github.com/OrgMentem/homebrew-tap
+brew install <formula>
 ```
 
 ## Tap layout
@@ -28,13 +21,30 @@ inscribi serve --host 127.0.0.1 --port 8080
 ```
 homebrew-tap/
   Formula/        # CLI / library formulae
-    inscribi.rb
+    zotio.rb      # generated + committed by goreleaser on each zotio release
+    inscribi.rb   # hand-maintained (git-revision strategy)
   README.md
 ```
 
 A `Casks/` directory can be added later for `.app`/`.dmg` desktop launchers.
 
-## Prerequisites for `inscribi` to install today
+## `zotio`
+
+Installs the `zotio` CLI and the `zotio-mcp` MCP server.
+
+```bash
+brew install orgmentem/tap/zotio
+zotio --version
+```
+
+The formula is **generated and committed automatically by [GoReleaser](https://goreleaser.com/)**
+from [`OrgMentem/zotio`](https://github.com/OrgMentem/zotio) (see its `.goreleaser.yaml`
+`brews:` block) on each tagged release — do not hand-edit `Formula/zotio.rb`.
+To cut a release: push a `vX.Y.Z` tag on `OrgMentem/zotio`; its release workflow
+runs GoReleaser, which builds the binaries and pushes the updated formula here.
+Users update with `brew update && brew upgrade zotio`.
+
+## `inscribi`
 
 The formula installs `inscribi` from its source repo via [`uv`](https://docs.astral.sh/uv/),
 which resolves the full (heavy, partly non-PyPI) dependency tree and honors the
@@ -43,20 +53,19 @@ which resolves the full (heavy, partly non-PyPI) dependency tree and honors the
 1. **Source repo is private.** `github.com/enieuwy/inscribi` is private, so
    `brew install` only succeeds for machines with git access to that repo. For
    public/non-dev distribution, make the source repo public or publish a release
-   artifact (see below).
+   artifact.
 2. **Not on PyPI.** There is no `pip install inscribi`; install goes through the
    git source. Publishing to PyPI would let the formula switch to a standard
    `uv tool install inscribi` without git access.
 
-## Maintaining the `inscribi` formula
+### Maintaining the `inscribi` formula
 
 The formula tracks a specific commit on the source repo (git download strategy,
 so there is no tarball `sha256` to recompute). For each release:
 
-1. Push the release commit to `enieuwy/inscribi` `main` (or a tag).
-2. Edit `Formula/inscribi.rb`:
-   - set `revision:` to the new commit SHA,
-   - set `version` to the new project version.
+1. Push the release commit to the source repo `main` (or a tag).
+2. Edit `Formula/inscribi.rb`: set `revision:` to the new commit SHA and
+   `version` to the new project version.
 3. Validate and smoke-test locally:
 
    ```bash
