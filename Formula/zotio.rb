@@ -5,12 +5,12 @@
 class Zotio < Formula
   desc "Zotero automation CLI: local-first search, library health checks, preview-first writes, annotation export, and MCP"
   homepage "https://github.com/OrgMentem/zotio"
-  version "0.4.0"
+  version "0.5.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/OrgMentem/zotio/releases/download/v0.4.0/zotio_0.4.0_darwin_amd64.tar.gz"
-      sha256 "d989aa567bbd750b45c9da6624a48e5afa972dfec6c91456010c96b4d5d9bb3c"
+      url "https://github.com/OrgMentem/zotio/releases/download/v0.5.0/zotio_0.5.0_darwin_amd64.tar.gz"
+      sha256 "be585501c29b35541b00d0e02ab5b98ca65c964a5898741ae9b8d5fa6c3ffa69"
 
       define_method(:install) do
         bin.install "zotio"
@@ -18,8 +18,8 @@ class Zotio < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/OrgMentem/zotio/releases/download/v0.4.0/zotio_0.4.0_darwin_arm64.tar.gz"
-      sha256 "dfb3f727337b873192e01269b3770198bf8213609681baa913e4040b68fb3c8f"
+      url "https://github.com/OrgMentem/zotio/releases/download/v0.5.0/zotio_0.5.0_darwin_arm64.tar.gz"
+      sha256 "82d29cc09efe5a917aab0f060799fdfbd27d8bbefa7130ef181ed85329d14a7e"
 
       define_method(:install) do
         bin.install "zotio"
@@ -30,16 +30,16 @@ class Zotio < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/OrgMentem/zotio/releases/download/v0.4.0/zotio_0.4.0_linux_amd64.tar.gz"
-      sha256 "a42685b2d76de8ca252acc9e1fab77fe6f1fac059c416e626d2b116cef31f6cb"
+      url "https://github.com/OrgMentem/zotio/releases/download/v0.5.0/zotio_0.5.0_linux_amd64.tar.gz"
+      sha256 "40930206e1f8273d0548207115a2056ebabc3ec7791abf6402c70af3467588c3"
       define_method(:install) do
         bin.install "zotio"
         bin.install "zotio-mcp"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/OrgMentem/zotio/releases/download/v0.4.0/zotio_0.4.0_linux_arm64.tar.gz"
-      sha256 "a2f61b0efbd57b0dd431f92ec49907b1e065bbf909e7fec1e70f7acd5d79e428"
+      url "https://github.com/OrgMentem/zotio/releases/download/v0.5.0/zotio_0.5.0_linux_arm64.tar.gz"
+      sha256 "c26c1200a982e06458a3004815eb6a5564494eb0fe36f819f2630c48609b947a"
       define_method(:install) do
         bin.install "zotio"
         bin.install "zotio-mcp"
