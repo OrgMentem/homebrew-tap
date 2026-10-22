@@ -4,25 +4,25 @@ cask "zotio" do
     run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}"], writable_paths: ["."]
   end
 
-  version "0.29.0"
+  version "0.30.0"
 
   on_macos do
     on_arm do
-      sha256 "e72bce3e5ddd802be67bea98df57b407fdcab5d3bc54afd10ccef0154ab01779"
+      sha256 "f8a9c17171949e2b878a49d0f045d32660f7010a215d432095cdb8370b648ca9"
       url "https://github.com/OrgMentem/zotio/releases/download/v#{version}/zotio_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "a672256abb2165cbf8fed210b4267943c2cdfdda850d40ee6c44098080f75313"
+      sha256 "41302117e8d26736303ff4257a35c8077725e27c23272a6ec7ed9f2eafe3bb82"
       url "https://github.com/OrgMentem/zotio/releases/download/v#{version}/zotio_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "e51aab568a952da2f5ffa3ea4f6240d0cdedc2d280b3fb3ee46da4509665c598"
+      sha256 "23524aaf06d79fb3e9f0589656afc247d580ff45252643ada1fd81285df1708f"
       url "https://github.com/OrgMentem/zotio/releases/download/v#{version}/zotio_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "6015a0a7798faae5c74468f7e049d484e11fdb6411b4404a27400822a74b208f"
+      sha256 "c3443b7c755747602b05cccc425610372d8abfbcd6a5509f4c0562b3e1de23fe"
       url "https://github.com/OrgMentem/zotio/releases/download/v#{version}/zotio_#{version}_linux_amd64.tar.gz"
     end
   end
